@@ -115,6 +115,10 @@ if uploaded_images:
             st.markdown(f"### Image: {uploaded_image.name}")
             st.image(img, caption='Uploaded Image', use_column_width=True)
 
+        # Resize image as per user-selected size
+        img = img.resize((image_size, image_size))  # Resize to match the model's input
+        img_array = np.array(img) / 255.0  # Normalize the image
+
         # Expand dimensions to match the model's input shape
         img_array = np.expand_dims(img_array, axis=0)
 
