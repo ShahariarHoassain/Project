@@ -1,13 +1,3 @@
-import subprocess
-import sys
-
-try:
-    import tensorflow as tf
-except ImportError:
-    print("TensorFlow not found. Installing TensorFlow...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "tensorflow"])
-
-# Now import TensorFlow after installing
 import tensorflow as tf
 from PIL import Image
 import numpy as np
