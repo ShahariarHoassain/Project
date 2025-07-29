@@ -2,11 +2,16 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import streamlit as st
+from io import BytesIO
 
-# Load the model
-model = tf.keras.models.load_model('/Users/shahariar13/Documents/Summer_25/AI_Lab/Project/NASNetMobile.keras')
-
+# Streamlit File Uploader for the model
 st.title('Lychee Image Classifier')
+
+# Upload model
+uploaded_model = st.file_uploader("Upload the Model", type=["h5", "keras"])
+
+if uploaded_model is not None:
+    model = tf.keras.models.load_model(BytesIO(uploaded_model.read()))
 
 # Upload Image
 uploaded_image = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
