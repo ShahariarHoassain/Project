@@ -92,7 +92,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Add a related Lychee image at the top of the app
-lychee_image_url = 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Lychee_Fruit.jpg'  # You can replace this URL with your own image URL or file path
+lychee_image_url = 'lychee-tree-full-lychee-fruit.jpg'  # Replace this with the actual file path
 st.image(lychee_image_url, caption="Lychee Fruit", use_container_width=True)
 
 # Layout: Using columns for better organization
