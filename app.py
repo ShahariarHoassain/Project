@@ -91,6 +91,10 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+# Add a related Lychee image at the top of the app
+lychee_image_url = 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Lychee_Fruit.jpg'  # You can replace this URL with your own image URL or file path
+st.image(lychee_image_url, caption="Lychee Fruit", use_container_width=True)
+
 # Layout: Using columns for better organization
 col1, col2 = st.columns([2, 1])
 
@@ -113,7 +117,7 @@ if uploaded_images:
         
         with col1:
             st.markdown(f"### Image: {uploaded_image.name}")
-            st.image(img, caption='Uploaded Image', use_column_width=True)
+            st.image(img, caption='Uploaded Image', use_container_width=True)
 
         # Resize image as per user-selected size
         img = img.resize((image_size, image_size))  # Resize to match the model's input
