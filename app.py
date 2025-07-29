@@ -1,7 +1,17 @@
-import streamlit as st
+import subprocess
+import sys
+
+try:
+    import tensorflow as tf
+except ImportError:
+    print("TensorFlow not found. Installing TensorFlow...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "tensorflow"])
+
+# Now import TensorFlow after installing
 import tensorflow as tf
 from PIL import Image
 import numpy as np
+import streamlit as st
 
 # Load the model
 model = tf.keras.models.load_model('/Users/shahariar13/Documents/Summer_25/AI_Lab/Project/NASNetMobile.keras')
@@ -26,10 +36,9 @@ if uploaded_image is not None:
     # Predict the class
     prediction = model.predict(img_array)
     class_idx = np.argmax(prediction, axis=1)
-    
+
     # You should have a dictionary for your class labels
     labels = ['Anthracnose_Cloudy', 'Anthracnose_Cloudy', 'Dry_Leaves', 'Entomosporium_Spot', 'Leaf_Mites_Direct', 'Mayetiola_PostRain']  # Update as per your model
     predicted_class = labels[class_idx[0]]
-    
-    st.write(f"Prediction: {predicted_class}")
 
+    st.write(f"Prediction: {predicted_class}")
